@@ -22,17 +22,17 @@ class App extends Component {
             <nav>
               <ul>
                 <li>
-                  <NavLink to="/courses/" activeClassName="my-active">
+                  <NavLink to="/courses" activeClassName="my-active">
                     Courses
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/users/" activeClassName="my-active">
+                  <NavLink to="/users" activeClassName="my-active">
                     Users
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/instructions/" activeClassName="my-active">
+                  <NavLink to="/instructions" activeClassName="my-active">
                     Instructions
                   </NavLink>
                 </li>
@@ -40,13 +40,19 @@ class App extends Component {
             </nav>
           </header>
           <Switch>
-            <Route path="/instructions" exact component={Instructions} />
+            <Route path="/instructions" component={Instructions} />
 
             <Route path="/courses" component={Courses} />
-            <Route path="/users" exact component={Users} />
+
+            <Route path="/users" component={Users} />
             <Redirect from="/all-courses" to="/courses" />
+            <Route path="/" />
             {/* 404 unknowm */}
-            <Route render={() => <h1>Not Found</h1>} />
+            <Route
+              render={() => (
+                <h1 style={{ textAlign: "center" }}>Page not found</h1>
+              )}
+            />
           </Switch>
         </div>
       </BrowserRouter>
